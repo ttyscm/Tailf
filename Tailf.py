@@ -9,7 +9,7 @@ import sublime_plugin
 
 _thread = None
 _stop = False
-_path = '/var/log/system.log'
+_path = sublime.load_settings('Tailf.sublime-settings').get('path')
 
 
 def tail_f():
@@ -34,9 +34,9 @@ def tail_f():
 class TailfStartCommand(sublime_plugin.ApplicationCommand):
 
 	def run(self):
-		global _thread
+		global _thread, _path
 		if not _path:
-			sublime.message_dialog('cannot find file path.')
+			sublime.message_dialog('cannot find "path" in Tailf.sublime-settings.')
 			return
 
 		if _thread is not None and _thread.is_alive():
@@ -64,3 +64,4 @@ class TailfStatusCommand(sublime_plugin.ApplicationCommand):
 	def run(self):
 		global _thread
 		print _thread
+		print sublime.load_settings('Tailf.sublime-settings').get('path')
