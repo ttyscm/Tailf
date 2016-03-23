@@ -1,0 +1,14 @@
+[
+	{
+		"caption": "Tailf: start",
+		"command": "tailf_start"
+	},
+	{
+		"caption": "Tailf: stop",
+		"command": "tailf_stop"
+	},
+	{
+		"caption": "Tailf: status",
+		"command": "tailf_status"
+	}
+]
